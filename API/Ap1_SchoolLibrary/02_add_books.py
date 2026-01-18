@@ -7,9 +7,9 @@ headers = {
 }
 
 new_book = {
-    "id": 11,
-    "title": "teee",
-    "author": "ttttt"
+    "id": 101,
+    "title": "EXAM TRY ORAL",
+    "author": "MY SELF REDOUANEB"
 }
 
 r = requests.post(
