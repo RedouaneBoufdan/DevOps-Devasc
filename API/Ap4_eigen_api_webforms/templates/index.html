@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ap4 - Webform API Experiment</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Ap4 – API Webform (Flask)</h1>
+  <p class="muted">
+    This page calls a public REST API (Chuck Norris Jokes) and shows the JSON result.
+  </p>
+
+  <div class="card">
+    <form method="POST">
+      <div class="row">
+        <label for="category"><strong>Category:</strong></label>
+        <select name="category" id="category">
+          <option value="random" {% if selected == "random" %}selected{% endif %}>random</option>
+          {% for c in categories %}
+            <option value="{{ c }}" {% if selected == c %}selected{% endif %}>{{ c }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button type="submit">Get Joke</button>
+    </form>
+  </div>
+
+  <hr />
+
+  {% if error %}
+    <p class="error"><strong>Error:</strong> {{ error }}</p>
+  {% endif %}
+
+  {% if joke_text %}
+    <div class="card">
+      <h3>Result</h3>
+      <p>{{ joke_text }}</p>
+      {% if joke_id %}
+        <p class="muted">Joke ID: {{ joke_id }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+</body>
+</html>
