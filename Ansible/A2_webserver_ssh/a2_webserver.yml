@@ -1,0 +1,42 @@
+---
+- name: A2 - Install and configure Apache webserver
+  hosts: webservers
+  become: yes
+
+  tasks:
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+
+    - name: Enable mod_rewrite
+      command: a2enmod rewrite
+      register: rewrite_result
+      changed_when: "'already enabled' not in rewrite_result.stdout"
+      notify: Restart apache2
+
+    - name: Deploy custom index.html
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <html>
+          <head><title>A2 Webserver</title></head>
+          <body>
+            <h1>A2 - Webserver deployed with Ansible</h1>
+            <p>Host: 192.0.2.3</p>
+          </body>
+          </html>
+
+    - name: Ensure apache2 is started and enabled
+      service:
+        name: apache2
+        state: started
+        enabled: yes
+
+  handlers:
+    - name: Restart apache2
+      service:
+        name: apache2
+        state: restarted
+
