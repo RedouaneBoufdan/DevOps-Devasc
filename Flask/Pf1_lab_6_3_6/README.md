@@ -15,3 +15,6 @@ bash ./sample-app.sh
 Test
 
 curl http://localhost:5050
+
+
+(App word gebruikt voor J1)
