@@ -2,7 +2,7 @@ import requests
 import urllib.parse
 
 route_url = "https://graphhopper.com/api/1/route?"
-key = "474b61d8-aeaa-4863-828f-78d325bcf13a"  # ton API key
+key = "474b61d8-aeaa-4863-828f-78d325bcf13a"
 
 def geocoding(location, key):
     while location == "":

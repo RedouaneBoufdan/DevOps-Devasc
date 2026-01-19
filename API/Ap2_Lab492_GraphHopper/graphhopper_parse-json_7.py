@@ -1,11 +1,11 @@
 import requests
 import urllib.parse
 
-# URLs de base
+
 geocode_url = "https://graphhopper.com/api/1/geocode?"
 route_url = "https://graphhopper.com/api/1/route?"
 
-# TA CLE API
+
 key = "474b61d8-aeaa-4863-828f-78d325bcf13a"
 
 def geocoding(location, key):

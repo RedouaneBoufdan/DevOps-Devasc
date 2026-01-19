@@ -4,7 +4,7 @@ import urllib.parse
 route_url = "https://graphhopper.com/api/1/route?"
 loc1 = "Washington, D.C."
 loc2 = "Baltimore, Maryland"
-key = "474b61d8-aeaa-4863-828f-78d325bcf13a"  # ton API key
+key = "474b61d8-aeaa-4863-828f-78d325bcf13a"
 
 def geocoding(location, key):
     geocode_url = "https://graphhopper.com/api/1/geocode?"

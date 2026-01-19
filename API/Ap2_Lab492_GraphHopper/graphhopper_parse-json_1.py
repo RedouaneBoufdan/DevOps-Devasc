@@ -6,7 +6,7 @@ route_url = "https://graphhopper.com/api/1/route?"
 
 loc1 = "Washington, D.C."
 loc2 = "Baltimore, Maryland"
-key = "474b61d8-aeaa-4863-828f-78d325bcf13a"  # ton API key
+key = "474b61d8-aeaa-4863-828f-78d325bcf13a" 
 
 url = geocode_url + urllib.parse.urlencode({"q": loc1, "limit": "1", "key": key})
 
